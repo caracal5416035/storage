@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;900&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Storage</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+        body {
+            overflow: hidden;
+            user-select: none;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8cdda, #1d2b64);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            width: 300px;
+        }
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; 
+  font-size: 28px; 
+  color: gold; 
+            text-align: center;
+            margin-bottom: -20px;
+        }
+    h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; 
+  font-size: 17px; 
+  color: #777; 
+            text-align: center;
+            margin-bottom: 0px;
+        }
+
+        label {
+            color: white;
+            font-size: 14px;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+input {
+            width: 93%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+        input {
+            background: rgba(255, 255, 255, 0.8);
+        }
+@keyframes scaleRotate {
+    0% {
+        transform: scale(0) rotate(-360deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.muncul {
+    animation: scaleRotate 1s ease-out forwards ;
+}
+        select {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-weight: 600;
+            background: #ff5f6d;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            -webkit-tap-highlight-color: rgba(150, 150, 150, 0.5);
+        }
+
+        button:hover {
+            background: #ff5f6d;
+        }
+    .logo {
+        pointer-events: none;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: -20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+    </style>
+</head>
+<body oncontextmenu="return false;" translate="no">
+    <div class="container muncul">
+        <img src="file-UAKKuGrvxRw7ZMW8YWWhve.webp" class="logo">
+        <h2>File Repository</h2>
+        <h3>Ensure file format is correct.</h3>
+        <form id="form">
+            <label for="kode">Kode File:</label>
+            <input type="number" id="kode" placeholder="Masukkan kode...">
+            
+            <label for="pilihan">Format file:</label>
+            <select id="pilihan">
+                <option value="pdf">PDF</option>
+                <option value="docx">DOCX</option>
+                <option value="xlsx">XLSX</option>
+                <option value="ppt">PPT</option>
+                <option value="png">PNG</option>
+                <option value="jpg">JPG</option>
+               <option value="mp4">MP4</option>
+                <option value="mp3">MP3</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="js">JS</option>
+            </select>
+
+            <button type="submit">Open</button>
+        </form>
+    </div>
+    <div id="customAlert" class="custom-alert">Harap masukkan kode file!</div>
+
+<script>
+    function showCustomAlert(message) {
+        var alertBox = document.getElementById("customAlert");
+        alertBox.textContent = message;
+        alertBox.classList.add("show-alert");
+
+        setTimeout(function() {
+            alertBox.classList.remove("show-alert");
+        }, 3000);
+    }
+
+    document.getElementById("form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var kode = document.getElementById("kode").value;
+        var format = document.getElementById("pilihan").value;
+
+        if (!kode) {
+            showCustomAlert("Harap masukkan kode file!");
+            return;
+        }
+
+        var rnz = kode + "." + format;
+        window.location.href = rnz;
+    });
+</script>
+
+<style>
+    .custom-alert {
+        position: fixed;
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 87, 87, 0.9);
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 14px;
+        text-align: center;
+        width: 250px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: top 0.5s ease-in-out;
+    }
+
+    .show-alert {
+        top: 20px;
+    }
+</style>
+
+</body>
+</html>

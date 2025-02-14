@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Azka</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #f8cdda, #1d2b64);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: #333;
+            overflow: hidden;
+        }
+        .container {
+            user-select: none;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        h3 {
+            font-size: 16px;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            color: #e91e63;
+        }
+        .info-container {
+            justify-content: center;
+            align-items: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 98%;
+            margin-left: 2.5px;
+            border-top: 2px solid rgba(255, 255, 255, 0.5); /* Garis atas */
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Garis bawah */
+        }
+        .info-container div {
+            padding: 10px;
+            font-size: 14px;
+            color: #fff;
+            font-weight: 500;
+        }
+        .info-container div:nth-child(odd) {
+            text-align: center;
+            padding-left: 0px;
+            font-weight: bold;
+            color: #fdd835;
+            border-right: 2px solid rgba(255, 255, 255, 0.5); /* Garis tengah */
+        }
+        .info-container div:nth-child(even) {
+            text-align: center;
+            padding-right: 0px;
+        }
+        .info-container div:not(:nth-last-child(-n+2)) {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Garis antar data */
+        }
+        .buttons {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+            gap: 10px;
+        }
+        .btn {
+            -webkit-tap-highlight-color: transparent;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #e91e63;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.1s;
+            font-weight: 800;
+        }
+        .btn:hover {
+            background-color: #c2185b;
+        }
+        .logo {
+            pointer-events: none;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: -20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    h4 {
+        margin-bottom: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="1739503533939.jpg" class="logo">
+        <h3>@azkaarrodhi</h3>
+        <h4>Selamat datang di halaman utama repository!</h4>
+        
+        <div class="info-container">
+            <div>Nama :</div> <div>M. Azka Arrodhi</div>
+            <div>Usia :</div> <div><p><span id="umur"></span> tahun</p></div>
+            <div>Alamat :</div> <div>Lamongan</div>
+            <div>Peran :</div> <div>Pelajar</div>
+            <div>Alamat IP :</div> <div><p><span id="ip"></span></p></div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn" onclick="window.location.href='https://github.com/caracal5416035?tab=repositories';">Gh.Repository</button>
+            <button onclick="window.location.href='https://drive.google.com/drive/folders/1dvfwXMUEpIZ9MIdUbJRtm6-ofp1RQFhd';" class="btn">Google Drive</button>
+            <button class="btn" onclick="window.location.href='nav.html';">Kontak Cepat</button>
+        </div>
+    </div>
+<script>
+  function updateIP() {
+    fetch('https://api64.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('ip').textContent = data.ip;
+      })
+      .catch(error => console.error('Gagal mengambil alamat IP:', error));
+  }
+
+  setInterval(updateIP, 10); // Perbarui setiap 10 milidetik
+  updateIP(); // Jalankan pertama kali
+</script>
+ <script>
+function hitungUmur() {
+    const tahunLahir = new Date().getFullYear() - 13;
+    const ulangTahun = new Date(new Date().getFullYear(), 4, 5);
+    const hariIni = new Date();
+
+    let umur = hariIni.getFullYear() - tahunLahir;
+
+    if (hariIni >= ulangTahun) {
+        umur++;
+    }
+
+    return umur;
+}
+
+function updateUmur() {
+    document.getElementById("umur").innerText = hitungUmur();
+}
+
+// Perbarui setiap detik
+document.addEventListener("DOMContentLoaded", function () {
+    updateUmur(); // Setel pertama kali
+    setInterval(updateUmur, 1);
+});
+</script>
+</body>
+</html>

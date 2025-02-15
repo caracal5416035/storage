@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigasi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Import font dari Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Styling halaman */
+        body {
+            user-select: none;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f8cdda, #1d2b64);
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Tombol Back */
+        .back-button {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: all 0.1s ease;
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        .back-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Styling tombol */
+        .button-container {
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            animation: slideUp 0.8s forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(110%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .bb {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 12px 20px;
+            width: 250px;
+            height: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            
+            color: white;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: all 0.1s ease;
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;" translate="no">
+
+    <!-- Tombol Back -->
+    <button class="back-button" onclick="history.back()"><i style="font-weight: bold;" class="fa fa-arrow-left" aria-hidden="true"></i></button>
+
+   <div class="button-container">
+        <button class="bb" onclick="window.location.href='nav.html';">Kontak Cepat</button>
+        <button class="bb" onclick="window.location.href='https://downloadapk.vercel.app/Exam.apk';"">Download Exam</button>
+        <button class="bb" onclick="window.location.href='https://azkaarrodhi.vercel.app/';">Website Saya</button>
+        <button class="bb" class="btn" onclick="window.location.href='https://github.com/caracal5416035?tab=repositories';">Gh.Repository</button>
+        <button class="bb" onclick="window.location.href='https://drive.google.com/drive/folders/1dvfwXMUEpIZ9MIdUbJRtm6-ofp1RQFhd';" class="btn">Google Drive</button>
+        <button class="bb" onclick="window.location.href='https://docs.google.com/spreadsheets/d/170j2-eOXfFhgziVH0bgyGbAckozdmXXYTIubIjwdNnY/edit?usp=drivesdk';" class="btn">Admin Quiz</button>
+
+    </div>
+
+    <script>
+        function tombolKlik(nomor) {
+            alert("Kamu menekan Tombol " + nomor + "!");
+        }
+    </script>
+
+</body>
+</html>

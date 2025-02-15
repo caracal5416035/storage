@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let o = g.value.trim(),
             p = i.value.trim();
         if (!o || !p) return void l("Masukkan kredensial yang tepat!");
-        window.location.href = "Open/" + encodeURIComponent(o) + "key?" + encodeURIComponent(p);
+        window.location.href = "Open/" + encodeURIComponent(o) + encodeURIComponent(p);
     });
 
     let q = 0,
